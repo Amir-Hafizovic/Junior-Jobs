@@ -13,3 +13,148 @@
  *= require_tree .
  *= require_self
  */
+ * {
+   box-sizing: border-box;
+ }
+ html, body {
+   margin: 0;
+   font-family: 'Open Sans', sans-serif;
+   background-color: #DBE2F1;
+ }
+ #brand{
+   font-size: 1.5em;
+   float: left;
+   padding: 30px 15px 30px 15px;
+   line-height: 10px;
+   font-family: 'Pacifico', cursive;
+   color: #DA1A40;
+
+ }
+
+ #nav-main{
+   background-color: #444;
+   color: #fff;
+   height: 70px;
+ }
+
+ #nav-main ul {
+   list-style-type: none;
+   margin:0;
+ }
+
+ #nav-main ul li {
+   display: inline-block;
+   padding: 30px 20px 30px 20px;
+   line-height: 10px;
+   position: relative;
+ }
+
+ #nav-main ul li a {
+   text-decoration: none;
+   color: #DBE2F1;
+ }
+
+ #nav-main ul li:hover {
+   background-color: #797979;
+   cursor: pointer;
+ }
+
+
+ /**========dropdown==========**/
+
+ /*shows dropdown on hover*/
+ #nav-main ul li:hover > ul {
+   display: inherit;
+ }
+
+ /*hides dropdown*/
+ #nav-main ul ul {
+   display: none;
+   position: absolute;
+   background-color: #444;
+   top: 70px;
+   left: 0;
+   padding: 0;
+   overflow: hidden;
+   z-index: 999;
+ }
+
+ #nav-main ul ul li {
+   display: block;
+   width: 175px
+ }
+ .heart {
+   color:#DA1A40;
+ }
+ a.fav {
+    padding:6px;
+    text-decoration:none;
+}
+a.fav:hover {
+    border-radius:50%;
+    background-color:rgba(158,158,158,.2);
+}
+.container {
+  margin: 10px;
+}
+.container h1 {
+  text-align: center;
+  margin-top: 60px;
+  line-height: 0.1;
+  color: #625f5f;
+  font-size: 3em;
+}
+footer {
+  text-align: center;
+  margin: 10px;
+}
+ /**end dropdown**/
+
+ .wrapper {
+   width: 900px;
+   margin: 0 auto;
+ }
+ .mdl-card__title-text {
+   margin: 0 25px 0 25px;
+   font-size: 1.4em !important;
+ }
+ .mdl-card {
+   width: 100% !important;
+   margin: 20px;
+ }
+
+ .mdl-card--horizontal {
+   flex-direction: column;
+   height: 1vh;
+   /* 1 */
+   padding-left: 150px;
+   width: 100%;
+ }
+ .mdl-card--horizontal .mdl-card__media {
+   left: 0;
+   position: absolute;
+   width: 150px;
+ }
+ .mdl-card--horizontal .mdl-card__supporting-text {
+   flex: 1 1 auto;
+   width: auto;
+ }
+.job-date, .job-location  {
+  float: right;
+  margin: 10px;
+}
+.mdl-card__actions.mdl-card--border span {
+    color: #625f5f
+}
+.mdl-card__media img {
+  width: 100%;
+}
+footer .mdl-mini-footer__left-section {
+  display: inline-flex !important;
+}
+.mdl-mini-footer__link-list {
+  align-self: center;
+}
+.mdl-mini-footer {
+  margin: 0;
+}

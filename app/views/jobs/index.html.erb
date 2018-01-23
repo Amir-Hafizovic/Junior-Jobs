@@ -1,0 +1,34 @@
+<h1>JOB BOARD</h1>
+<hr>
+
+
+    <div class="wrapper">
+      <div class="mdl-grid--no-spacing">
+        <% @results.each do |job| %>
+          <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+            <div class="mdl-card mdl-shadow--2dp mdl-card--horizontal">
+              <div class="mdl-card__media">
+                <!-- <img src="http://placehold.it/150x200/DC143C/FFFFFF" alt="img"> -->
+                <img src="https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.png" alt="img">
+              </div>
+                <div class="mdl-card__title">
+                  <h4 class="mdl-card__title-text"><%= job['title'].gsub(/\<strong\>/, '').gsub(/\<\/strong\>/, '') %></h4>
+
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <%= job['description'].gsub(/\<strong\>/, '').gsub(/\<\/strong\>/, '') %>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="<%= job['redirect_url'] %>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple">Read More</a>
+                  <span class="job-location"> <%= job['location']['display_name'] %></span>
+                  <span class='job-date'><%= job['created'].gsub(/T........Z/, '') %></span>
+                </div>
+                <div class="mdl-card__menu">
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons heart">favorite</i></button>
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons">share</i></button>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>

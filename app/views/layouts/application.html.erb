@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1</title>
+    <title>Junior Jobs</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <!--Navbar start-->
+      <nav id="nav-main" role='navigation'>
+        <div id="brand">Junior Jobs</div>
+        <ul>
+          <li><a href="http://localhost:3000/">Home</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li><a href="#">Profiles</a>
+            <ul class="profile-list">
+              <li>Junior Profiles</li>
+              <li>Company Profiles</li>
+            </ul>
+          </li>
+          <li>
+            <% if @current_user.present? %>
+            <%= @current_user.name %>
+            <!--dropdown-->
+            <ul>
+              <li>Edit Profile</li>
+              <li>Favourites <span>&hearts;</span></li>
+              <li><%= link_to 'Logout', login_path, method: :delete %></li>
+            </ul>
+            <% else %>
+            <%= link_to 'Login', login_path %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+
+    </footer>
+    <footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div id="brand">Junior Jobs</div>
+    <ul class="mdl-mini-footer__link-list">
+      <li>&copy; <%= Time.current.year %></li>
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Privacy & Terms</a></li>
+    </ul>
+  </div>
+</footer>
   </body>
 </html>
