@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   # get 'users/update'
   # get 'users/show'
   # get 'users/destroy'
+  get 'users/juniors' => 'users#juniors'
+  get 'users/companies' => 'users#companies'
   resources :users
 
   get '/login' => 'session#new'

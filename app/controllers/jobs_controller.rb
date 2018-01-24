@@ -40,6 +40,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    Job.destroy params[:id]
+    redirect_to planet_path
   end
 
   private
