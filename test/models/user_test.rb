@@ -13,6 +13,7 @@
 #  bio             :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  company         :text
 #
 
 require 'test_helper'

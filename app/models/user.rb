@@ -13,10 +13,13 @@
 #  bio             :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  company         :text
 #
 
 class User < ApplicationRecord
   has_secure_password
-
   enum user_type: [:employer, :junior]
+  has_many :notes, dependent: :destroy
+  has_many :jobs, dependent: :destroy
+  has_many :favourites, dependent: :destroy
 end

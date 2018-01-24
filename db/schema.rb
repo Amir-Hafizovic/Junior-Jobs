@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123073131) do
+ActiveRecord::Schema.define(version: 20180124125735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.text "title"
@@ -24,6 +31,16 @@ ActiveRecord::Schema.define(version: 20180123073131) do
     t.text "contract_type"
     t.text "logo_image"
     t.text "salary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "title"
+    t.text "content"
+    t.integer "user_id"
+    t.integer "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180123073131) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "company"
   end
 
 end
