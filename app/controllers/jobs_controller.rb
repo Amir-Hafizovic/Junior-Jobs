@@ -1,11 +1,27 @@
 class JobsController < ApplicationController
+
+  before_action :check_if_logged_in, except: [:index, :external, :show]
+
   def new
-    @job = Job.new
+
+    #if @current_user.user_type? :manager
+      #user = User.find_by user_type: 'employer'
+    if @current_user.user_type == "employer"
+      @job = Job.new
+    else
+      flash[:error] = "Only employers can post jobs"
+      redirect_to login_path
+    end
+    #@job = Job.new
   end
 
   def create
-    Job.create job_params
-    redirect_to jobs_path
+
+    # job = Job.create(job_params)
+    job = @current_user.jobs.create job_params
+    # raise 'hell'
+    redirect_to job_path job
+
   end
 
   def index
@@ -26,7 +42,17 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @job = Job.find params[:id]
+    job = Job.find params[:id]
+
+    if @current_user.user_type == "employer" && @current_user.id == job.user.id
+      @job = Job.find params[:id]
+
+
+    else
+      flash[:error] = "You are not authorised to edit this job"
+      redirect_to login_path
+    end
+
   end
 
   def update
@@ -37,11 +63,14 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find params[:id]
+    #
+    # template = @current_user.user_type + "_show"
+    # render template
   end
 
   def destroy
     Job.destroy params[:id]
-    redirect_to planet_path
+    redirect_to job_path
   end
 
   private

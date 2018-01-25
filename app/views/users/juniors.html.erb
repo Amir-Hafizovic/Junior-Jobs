@@ -1,1 +1,13 @@
 <h1>Junior Profiles</h1>
+
+
+<ul>
+  <% @jnrs.each do |junior| %>
+
+    <li>
+      <em><%= link_to junior.name, junior%></em>
+
+    </li>
+
+  <% end %>
+</ul>

@@ -1,0 +1,42 @@
+
+
+
+
+    <%= form_for @job do |f| %>
+      <fieldset>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :job_location %>
+        <%= f.text_field :job_location %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :job_date %>
+        <%= f.date_field :job_date %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :job_company %>
+        <%= f.text_field :job_company %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :contract_type %>
+        <%= f.text_field :contract_type %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :logo_image, 'image URL' %>
+        <%= f.text_field :logo_image %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :salary %>
+        <%= f.text_field :salary %>
+      </fieldset>
+
+
+      <%= f.submit 'Save' %>
+
+    <% end %>

@@ -19,7 +19,8 @@
 class User < ApplicationRecord
   has_secure_password
   enum user_type: [:employer, :junior]
-  has_many :notes, dependent: :destroy
-  has_many :jobs, dependent: :destroy
-  has_many :favourites, dependent: :destroy
+  has_many :notes
+  has_many :jobs
+  has_and_belongs_to_many :favourites
+  validates :email, presence: true, uniqueness: true
 end
