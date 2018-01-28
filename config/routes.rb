@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   root to: 'pages#home'
 
   # get 'favourites/new'
@@ -44,7 +46,17 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  get '/admin'   => 'pages#admin_party'
+  #get '/admin'   => 'pages#admin_party'
+
+  namespace :admin do
+    resources :favourites
+    resources :jobs
+    resources :notes
+    resources :users
+
+    root to: "favourites#index"
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -30,9 +30,6 @@ class ApplicationController < ActionController::Base
     # database (i.e. we have re-seeded the 'users' table), delete the session
     session[:user_id] = nil unless @current_user.present?
   end
-  def role_template
-  user_role = current_user.user_type? :manager ? 'junior' : 'employer'
-  "#{user_role}_#{action_name}"
-  end
+  
 
 end

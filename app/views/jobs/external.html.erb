@@ -12,7 +12,10 @@
                 <img src="https://zunastatic-abf.kxcdn.com/images/global/jobs/fb_share.png" alt="img">
               </div>
                 <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text"><%= job['title'].gsub(/\<strong\>/, '').gsub(/\<\/strong\>/, '') %></h4>
+                  <a href="<%= job['redirect_url'] %>"><div class="mdl-card__title">
+                    <h4 class="mdl-card__title-text"><%= job['title'].gsub(/\<strong\>/, '').gsub(/\<\/strong\>/, '') %></h4><h4 class="mdl-card__title-text co">@ <%= job['company']['display_name'] %></h4>
+
+                  </div></a>
 
                 </div>
                 <div class="mdl-card__supporting-text">
@@ -24,8 +27,7 @@
                   <span class='job-date'><%= job['created'].gsub(/T........Z/, '') %></span>
                 </div>
                 <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons heart">favorite</i></button>
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons">share</i></button>
+                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons heart">favorite_border</i></button>
                 </div>
             </div>
           </div>

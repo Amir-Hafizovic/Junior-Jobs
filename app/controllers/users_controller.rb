@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :check_if_logged_in, only: [:update, :edit, :show]
+before_action :check_if_logged_in, only: [:edit]
 
 
   def new
@@ -51,6 +51,7 @@ before_action :check_if_logged_in, only: [:update, :edit, :show]
 
   def show
     @user = User.find params[:id]
+    #raise 'hell'
   end
 
   def destroy

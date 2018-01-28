@@ -1,2 +1,37 @@
 <h1><%= @user.name %> Profile</h1>
-<%= @user.name %>, <%= @user.email %>
+<div class="profile-edit">
+   <% if @current_user != nil && @current_user.id == @user.id %> <%= link_to 'Edit', edit_user_path( @user )%>
+<%= link_to 'Delete', user_path( @user ), :confirm => 'Are you sure?', :method => :delete %>
+   <% end %>
+</div>
+
+<hr>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="profile">
+      <img src="<%= @user.image %>" alt="">
+      <h5><%= @user.name %></h5>
+      <li><p><%= @user.employer_title %> <%= @user.company %></p></li>
+      <li><p><%= @user.junior_title %></p></li>
+    </div>
+    <h6>Tools of the Trade </h6>
+      <li>tool</li>
+      <li>tool</li>
+      <li>tool</li>
+  </div>
+
+  <div class="mdl-cell mdl-cell--8-col">
+    <div class="bio">
+      <h6>Bio</h6>
+      <p><%= @user.bio %></p>
+    </div>
+    <div class="Qualifications">
+      <h6>Qualifications</h6>
+      <p><%= @user.bio %></p>
+    </div>
+    <div class="Experience">
+      <h6>Experience</h6>
+      <p><%= @user.bio %></p>
+    </div>
+  </div>
+</div>

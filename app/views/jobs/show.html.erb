@@ -1,8 +1,44 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h1><%= @job.title %></h1>
+<div class="profile-edit">
+   <% if @current_user != nil && @current_user.id == @job.user_id %> <%= link_to 'Edit', edit_job_path( @job )%>
+<%= link_to 'Delete', job_path( @job ), :confirm => 'Are you sure?', :method => :delete %>
+   <% end %>
+</div>
 
-<h1>FOR EMPLOYERS</h1>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<hr>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="profile">
+      <img src="<%= @job.logo_image %>" alt="">
+      <h5><%= @job.id %></h5>
+      <h5><%= @job.title %></h5>
+      <li><p><%= @job.job_date %> <%= @job.job_company %></p></li>
+      <li><p><%= @job.contract_type %></p></li>
+      <li><p><%= @job.salary %></p></li>
+    </div>
 
-<h1>FOR JUNIORS</h1>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+
+  <div class="mdl-cell mdl-cell--8-col">
+    <%= button_to '', {disable: @current_user == nil, controller: "favourites", action: "create", user_id: @current_user != nil ? @current_user.id : nil, job_id: @job.id, class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored'} do%>
+      <% if @favourite.present? %>
+        <i class="material-icons">favorite</i>
+      <%else %>
+        <i class="material-icons">favorite_border</i>
+      <% end %>
+    <% end %>
+    <div class="bio">
+      <h6>Job Description</h6>
+      <p><%= @job.description %></p>
+    </div>
+    <div class="Qualifications">
+      <h6>Qualifications</h6>
+      <p>blah</p>
+    </div>
+    <div class="Experience">
+      <h6>Experience</h6>
+      <p>blah blah</p>
+    </div>
+    <p>Post created at <%= @job.created_at %> by <%= @user.name %>
+  </div>
+</div>

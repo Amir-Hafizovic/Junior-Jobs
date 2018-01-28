@@ -11,21 +11,26 @@
                 <!-- <img src="http://placehold.it/150x200/DC143C/FFFFFF" alt="img"> -->
                 <img src="https://i.imgur.com/gafefiK.png" alt="img">
               </div>
-                <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text"><%= job['title'] %></h4>
+                <a href="jobs/<%= job.id %>"><div class="mdl-card__title">
+                  <h4 class="mdl-card__title-text"><%= job.title %></h4><h4 class="mdl-card__title-text co">@ <%= job.job_company %></h4>
 
-                </div>
+                </div></a>
                 <div class="mdl-card__supporting-text">
-                  <%= job['description'] %>
+                  <%= truncate(job.description, :length => 450)  %>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                  <a href="<%= link_to job.title, job_path( job ) %>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple">Read More</a>
-                  <span class="job-location"> <%= job['job_location'] %></span>
-                  <span class='job-date'><%= job['job_date'] %></span>
+                  <a href="jobs/<%= job.id %>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple">Read More</a>
+                  <span class="job-location"> <%= job.job_location %></span>
+                  <span class='job-date'><%= job.job_date %></span>
                 </div>
                 <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons heart">favorite</i></button>
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple"><i class="material-icons">share</i></button>
+                  <%= button_to favourites_path, {disable: @current_user == nil, controller: "favourites", action: "create", user_id: @current_user == nil ? nil : @current_user.id, job_id: job.id, class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored', method: 'post'} do%>
+                    <% if @favourite_list.present? && @favourite_list.find{|rec| rec.job_id == job.id}%>
+                      <i class="material-icons">favorite</i>
+                    <%else %>
+                      <i class="material-icons">favorite_border</i>
+                    <% end %>
+                  <% end %>
                 </div>
             </div>
           </div>

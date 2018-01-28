@@ -26,6 +26,8 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @favourite_list = if @current_user != nil then Favourite.where user_id:@current_user.id else nil end
+    # @favourite = Favourite.where user_id: @current_user.id, job_id: @jobs.id
   end
 
   def external
@@ -63,6 +65,9 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find params[:id]
+    @user = User.find @job.user_id
+    @favourite = if @current_user != nil then Favourite.where user_id: @current_user.id, job_id: @job.id else nil end
+    #raise 'hell'
     #
     # template = @current_user.user_type + "_show"
     # render template

@@ -23,4 +23,6 @@ class User < ApplicationRecord
   has_many :jobs
   has_and_belongs_to_many :favourites
   validates :email, presence: true, uniqueness: true
+  validates :name, length: { minimum: 2 }
+  validates :bio, length: { maximum: 500 }
 end
