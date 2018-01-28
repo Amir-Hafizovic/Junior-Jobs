@@ -383,3 +383,9 @@ h2 a{
 .fav-list span.mdl-list__item-text-body {
     width: 90%;
 }
+.home .show-box img {
+    width: 230px;
+}
+.home .show-box h2 {
+    padding: 15px 0;
+}
