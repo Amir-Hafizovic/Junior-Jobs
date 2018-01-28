@@ -3,7 +3,7 @@
 
 <div class="mdl-grid user-index">
   <% @jnrs.each do |junior| %>
-
+  <div class="mdl-cell mdl-cell--3-col ">
     <div class="demo-card-square mdl-card mdl-shadow--2dp">
       <div class="img-con">
         <a href="<%= junior.id %>"><img src="<%= junior.image %>" alt=""></a>
@@ -22,6 +22,6 @@
         </a>
       </div>
     </div>
-
+  </div>
   <% end %>
 </div>
