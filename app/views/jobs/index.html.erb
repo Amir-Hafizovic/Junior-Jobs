@@ -1,5 +1,4 @@
 <h1>JOB BOARD</h1>
-<hr>
 
 
     <div class="wrapper">
@@ -8,15 +7,15 @@
           <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone">
             <div class="mdl-card mdl-shadow--2dp mdl-card--horizontal">
               <div class="mdl-card__media">
-                <!-- <img src="http://placehold.it/150x200/DC143C/FFFFFF" alt="img"> -->
-                <img src="https://i.imgur.com/gafefiK.png" alt="img">
+                <img src="<%= job.logo_image %>" alt="img">
+                <!-- <img src="https://i.imgur.com/gafefiK.png" alt="img"> -->
               </div>
                 <a href="jobs/<%= job.id %>"><div class="mdl-card__title">
                   <h4 class="mdl-card__title-text"><%= job.title %></h4><h4 class="mdl-card__title-text co">@ <%= job.job_company %></h4>
 
                 </div></a>
                 <div class="mdl-card__supporting-text">
-                  <%= truncate(job.description, :length => 450)  %>
+                  <%= truncate(job.description, :length => 330)  %>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                   <a href="jobs/<%= job.id %>" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-upgraded="MaterialButton,MaterialRipple">Read More</a>
@@ -24,7 +23,7 @@
                   <span class='job-date'><%= job.job_date %></span>
                 </div>
                 <div class="mdl-card__menu">
-                  <%= button_to favourites_path, {disable: @current_user == nil, controller: "favourites", action: "create", user_id: @current_user == nil ? nil : @current_user.id, job_id: job.id, class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored', method: 'post'} do%>
+                  <%= link_to favourites_path(user_id: @current_user != nil ? @current_user.id : nil, job_id: job.id), class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored', method: :post do%>
                     <% if @favourite_list.present? && @favourite_list.find{|rec| rec.job_id == job.id}%>
                       <i class="material-icons">favorite</i>
                     <%else %>

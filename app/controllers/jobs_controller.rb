@@ -12,7 +12,8 @@ class JobsController < ApplicationController
       flash[:error] = "Only employers can post jobs"
       redirect_to login_path
     end
-    #@job = Job.new
+
+    @job_list = Job.where(user_id: @current_user.id)
   end
 
   def create

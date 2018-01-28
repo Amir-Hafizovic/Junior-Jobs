@@ -1,4 +1,9 @@
 class FavouritesController < ApplicationController
+  before_action :check_if_logged_in
+
+
+
+
   def new
     @favourite = Favourite.new
   end
@@ -9,16 +14,16 @@ class FavouritesController < ApplicationController
     redirect_to request.referrer
   end
 
-  def index
-  end
-
-  def edit
-  end
 
   def update
   end
 
   def show
+    # @favourite_list = if @current_user != nil then Favourite.where user_id:@current_user.id else nil end
+    @favourite_list = Favourite.where(user_id: @current_user.id).select("job_id")
+    @jobs = Job.where(id: @favourite_list)
+    #raise 'hell'
+    #@jobs = Jobs.where user_id:@favourite_list
   end
 
   def destroy

@@ -37,26 +37,35 @@
             <!--dropdown-->
             <ul>
               <li><a href="/users/<%= @current_user.id %>/edit">Edit Profile</a></li>
-              <li>Favourites <span>&hearts;</span></li>
+              <li class="fav"><a href="/favourites/<%= @current_user.id %>">Favourites</a><i class="material-icons">favorite</i></li>
+              <% if @current_user.user_type == 'employer' %>
+              <li><a href="/jobs/new">My Jobs</a></li>
+              <% end %>
               <li><%= link_to 'Logout', login_path, method: :delete %></li>
             </ul>
             <% else %>
             <%= link_to 'Login', login_path %>
             <% end %>
           </li>
-          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-            <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-            <span class="mdl-switch__label"></span>
-          </label>
+          <li class='search'>
+            <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6">
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+            </form>
+          </li>
         </ul>
       </nav>
     </header>
     <div class="container">
       <%= yield %>
     </div>
-    <footer>
-
-    </footer>
     <footer class="mdl-mini-footer">
   <div class="mdl-mini-footer__left-section">
     <div id="brand">Junior Jobs</div>

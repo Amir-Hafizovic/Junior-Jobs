@@ -1,12 +1,11 @@
 <h1><%= @job.title %></h1>
 <div class="profile-edit">
    <% if @current_user != nil && @current_user.id == @job.user_id %> <%= link_to 'Edit', edit_job_path( @job )%>
-<%= link_to 'Delete', job_path( @job ), :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Delete', job_path( @job.id ), confirm: 'Are you sure?', method: :delete %>
    <% end %>
 </div>
 
-<hr>
-<div class="mdl-grid">
+<div class="mdl-grid job-show">
   <div class="mdl-cell mdl-cell--4-col">
     <div class="profile">
       <img src="<%= @job.logo_image %>" alt="">
@@ -20,7 +19,7 @@
   </div>
 
   <div class="mdl-cell mdl-cell--8-col">
-    <%= button_to '', {disable: @current_user == nil, controller: "favourites", action: "create", user_id: @current_user != nil ? @current_user.id : nil, job_id: @job.id, class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored'} do%>
+    <%= link_to favourites_path(user_id: @current_user != nil ? @current_user.id : nil, job_id: @job.id), class: 'mdl-button mdl-js-button mdl-button--icon mdl-button--colored', method: :post do%>
       <% if @favourite.present? %>
         <i class="material-icons">favorite</i>
       <%else %>

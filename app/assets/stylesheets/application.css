@@ -21,6 +21,9 @@
    font-family: 'Open Sans', sans-serif;
    background-color: #ebebeb;
  }
+ p {
+    color: #9e9e9e !important;
+ }
  #brand{
    font-size: 1.5em;
    float: left;
@@ -91,24 +94,33 @@
  .heart {
    color:#DA1A40;
  }
- a.fav {
-    padding:6px;
-    text-decoration:none;
+ #nav-main .fav i.material-icons {
+     color: #DA1A40;
+     font-size: 1.3em;
+     vertical-align: text-bottom;
+     margin-left: 5px;
+ }
+ #nav-main form {
+    width: 300px;
 }
-a.fav:hover {
-    border-radius:50%;
-    background-color:rgba(158,158,158,.2);
+li.search {
+    padding:  0 !important;
 }
+li.search:hover {
+    background:transparent !important;
+}
+.mdl-textfield__label:after {
+    background-color: #DA1A40 !important;
+  }
 .container {
   margin: 10px;
 }
 .container h1 {
   text-align: center;
-  margin-top: 60px;
-  line-height: 0.1;
   color: #625f5eb3;
   font-size: 3em;
   font-weight: 100;
+  margin-top: 50px;
 }
 footer {
   text-align: center;
@@ -119,6 +131,7 @@ footer {
  .wrapper {
    width: 900px;
    margin: 0 auto;
+   margin-top: 50px;
  }
  .mdl-card__title {
    display: inline-block !important;
@@ -132,9 +145,10 @@ footer {
  }
  .mdl-card {
    width: 100% !important;
-   margin: 20px;
  }
-
+ .mdl-cell.mdl-cell--12-col-desktop.mdl-cell--6-col-tablet.mdl-cell--2-col-phone {
+     margin: 30px 0;
+ }
  .mdl-card--horizontal {
    flex-direction: column;
    height: 1vh;
@@ -161,6 +175,7 @@ footer {
 .mdl-card__media img {
   width: 100%;
   align-self: center;
+  padding: 10px;
 }
 .mdl-card__media {
   background: none !important;
@@ -169,6 +184,9 @@ footer {
 }
 footer .mdl-mini-footer__left-section {
   display: inline-flex !important;
+}
+footer.mdl-mini-footer {
+    width: 100%;
 }
 .mdl-mini-footer__link-list {
   align-self: center;
@@ -180,11 +198,18 @@ footer .mdl-mini-footer__left-section {
 
 .demo-card-square.mdl-card {
   width: 320px!important;
-  height: 370px!important;
+  height: 400px!important;
 }
 .user-index .mdl-card__title {
   background: #444444;
   padding: 10px 16px 4px 16px !important;
+  width: 100%;
+
+}
+.company-index .mdl-card__title {
+  background: #444444;
+  padding: 10px 16px 4px 16px !important;
+  width: 100%;
 
 }
 .mdl-card__title-text {
@@ -199,6 +224,14 @@ footer .mdl-mini-footer__left-section {
     margin-top: 15px !important;
 }
 .user-index .mdl-card__supporting-text {
+  padding-top: 0 !important;
+  background: #444444;
+  width: 100%;
+  /* color: #e3e3e3; */
+  color: #9e9e9e !important;
+  width:100% !important;
+}
+.company-index .mdl-card__supporting-text {
   padding-top: 0 !important;
   background: #444444;
   width: 100%;
@@ -249,8 +282,11 @@ h2 a{
     float: right;
     margin: 0 40px;
 }
-.mdl-button.mdl-button--colored {
+.mdl-button.mdl-button--colored{
     color: rgb(219, 27, 64) !important;
+}
+.job-show .mdl-button.mdl-button--colored {
+    float: right;
 }
 .mdl-cell a {
   color: rgb(219, 27, 64) !important;
@@ -259,4 +295,91 @@ h2 a{
 .mdl-cell a:hover {
   color: rgba(219, 27, 64, 0.5) !important;
   text-decoration: none;
+}
+.mdl-list .material-icons {
+  color: rgb(219, 27, 64) !important;
+}
+.mdl-button--raised.mdl-button--colored {
+    background: rgb(219, 27, 64) !important;
+    color: rgb(255,255,255) !important;
+}
+.home .mdl-cell {
+    float:  left;
+}
+.sign-up {
+  height: 300px;
+  background: white;
+  padding: 20px;
+}
+.sign-up form.button_to {
+    margin: 30px auto;
+    float: none !important;
+    width: 90px;
+}
+.sign-up h2, .new-job h2 {
+    font-size: 1.5em;
+    line-height: normal;
+    text-align: center;
+    color: #625f5eb3;
+}
+.sign-up  p {
+  text-align: center;
+}
+.right-box {
+  height: 300px;
+  background: white;
+}
+.right-box .mdl-textfield {
+    height: 190px !important;
+}
+.right-box .mdl-textfield__label {
+  top: -24px;
+  position: relative;
+}
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    top: -46px !important;
+    color: rgb(219, 27, 64) !important;
+ }
+.demo-card-square.mdl-card {
+  width:unset !important;
+  height: unset !important;
+}
+.divider {
+  height: 110px;
+  display: flex;
+  width: 100%;
+  margin: 5px 0;
+}
+.divider h3, h6 {
+  font-size: 2em;
+  line-height: normal;
+  text-align: center;
+  color: rgb(145, 143, 142);
+  align-self: center;
+  width: 100%;
+}
+.new-job .mdl-cell.mdl-cell--3-col {
+    width: 38%;
+}
+.new-job .show-box {
+  background: white;
+  padding: 15px;
+}
+.new-job .mdl-list {
+  width: 58%;
+  margin: 5px;
+}
+.new-job li.mdl-list__item.mdl-list__item--three-line {
+    background: white;
+    margin: 20px;
+}
+.fav-list ul.demo-list-three.mdl-list {
+    background: white;
+    padding: 10px;
+}
+.list-title {
+    display: grid;
+}
+.fav-list span.mdl-list__item-text-body {
+    width: 90%;
 }

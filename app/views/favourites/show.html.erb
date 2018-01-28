@@ -1,2 +1,22 @@
-<h1>Favourites#show</h1>
-<p>Find me in app/views/favourites/show.html.erb</p>
+<h1>FAVOURITES</h1>
+
+<div class="mdl-grid fav-list">
+  <% @jobs.each do |favorite| %>
+
+    <ul class="demo-list-three mdl-list">
+      <li class="mdl-list__item mdl-list__item--three-line">
+        <div class="list-title">
+          <a href="jobs/<%= favorite.id %>"><span><%= favorite.title %></span></a>
+          <span><%= favorite.job_date %></span>
+          <span><%= favorite.job_company %></span>
+        </div>
+          <span class="mdl-list__item-text-body">
+            <%= favorite.description %>
+          </span>
+        <span class="mdl-list__item-secondary-content">
+          <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">favorite</i></a>
+        </span>
+      </li>
+    </ul>
+  <% end %>
+</div>

@@ -1,2 +1,30 @@
-<h1>New Job</h1>
-<%= render partial: 'form' %>
+<h1>JOB CONSOLE</h1>
+
+
+<div class="mdl-grid new-job">
+  <ul class="demo-list-three mdl-list">
+    <h2>MY JOBS</h2>
+    <% @job_list.each do |job| %>
+      <li class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+          <img src="job.logo_image" alt="">
+          <strong>Job ID: </strong><span><%= job.id %></span>
+          <a href="jobs/<%= job.id %>"><strong><span><%= job.title %></span></strong></a>
+          <span class="mdl-list__item-text-body">
+            <%= job.description %>
+          </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+          <a href="jobs/<%= job.id %>/edit">Edit</a><a href="jobs/<%= job.id %>/delete">Delete</a>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+    <div class="mdl-cell mdl-cell--3-col ">
+      <h2>NEW JOB</h2>
+      <div class="show-box">
+          <%= render partial: 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,109 @@
-<h1>home</h1>
+
+<div class="home"
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--8-col-desktop ">
+      <div class="sign-up">
+        <h2>Welcome to Australia's number one junior job search site.</h2>
+        <p>Sign up as either a <a href="/users/juniors">junior</a> looking for work or as a <a href="/users/companies">company</a> to post jobs. </p>
+        <%= button_to 'sign up', new_user_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored', method: 'get' %>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <div class="sign-up right-box">
+        <h2>Login</h2>
+
+        <%= flash[:error] %>
+
+        <%= form_tag login_path do %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= email_field_tag :email, nil, class:  'mdl-textfield__input' %>
+          <%= label_tag :email, nil, class: 'mdl-textfield__label' %>
+
+          <%= password_field_tag :password, nil, class:  'mdl-textfield__input' %>
+          <%= label_tag :password, nil, class: 'mdl-textfield__label' %>
+
+          <%= submit_tag 'Login', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="divider mdl-cell mdl-cell--12-col">
+    <h3>LATEST CODING ROCKSTARS</h3>
+  </div>
+    <div class="mdl-cell mdl-cell--3-col ">
+      <div class="show-box">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Profile Name</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenan convallis.
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col ">
+      <div class="show-box">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Profile Name</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenan convallis.
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col ">
+      <div class="show-box">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Profile Name</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenan convallis.
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col ">
+      <div class="show-box">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Profile Name</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenan convallis.
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider mdl-cell mdl-cell--12-col">
+      <h6>BUILT BY JUNIORS FOR JUNIORS</h6>
+    </div>
+  </div>
+</div>
