@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20180127085542) do
     t.integer "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_favourites_on_job_id"
+    t.index ["user_id", "job_id"], name: "index_favourites_on_user_id_and_job_id", unique: true
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|

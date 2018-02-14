@@ -47,4 +47,4 @@ puts "Created #{ Note.all.length} Notes: #{Note.pluck(:title).join "\n" }"
 u1.jobs << j1 << j2 << j3
 u1.notes << n1
 u2.notes << n2
-#j1.favourites << u2 << u3
+# j1.favourites << u2 << u3
