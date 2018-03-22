@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##JUNIOR JOBS
 
-Things you may want to cover:
+A job search website developed with Ruby on Rails. This project has 3 models, Users, Jobs and Favourites.
 
-* Ruby version
+First time startup in console:
+* rails bundle
+* rails rails db:create
+* rails db:seed
+* rails db:migrate
 
-* System dependencies
+Start server in console: rails s
 
-* Configuration
+View in browser on localhost:3000
 
-* Database creation
+####Features
 
-* Database initialization
+* Ruby version 2.4
 
-* How to run the test suite
+* Rails 5.1.4
 
-* Services (job queues, cache servers, search engines, etc.)
+* Google material lite styling
 
-* Deployment instructions
-
-* ...
+* PostgreSQL Database
