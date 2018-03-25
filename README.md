@@ -1,6 +1,6 @@
 # README
 
-##JUNIOR JOBS
+## JUNIOR JOBS
 
 A job search website developed with Ruby on Rails. This project has 3 models, Users, Jobs and Favourites.
 
@@ -14,7 +14,7 @@ Start server in console: rails s
 
 View in browser on localhost:3000
 
-####Features
+#### Features
 
 * Ruby version 2.4
 
