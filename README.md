@@ -6,7 +6,7 @@ A job search website developed with Ruby on Rails. This project has 3 models, Us
 
 First time startup in console:
 * rails bundle
-* rails rails db:create
+* rails db:create
 * rails db:seed
 * rails db:migrate
 
@@ -21,5 +21,3 @@ View in browser on localhost:3000
 * Rails 5.1.4
 
 * Google material lite styling
-
-* PostgreSQL Database
